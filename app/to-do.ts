@@ -1,15 +1,20 @@
 class Task {
-  done: boolean;
-  description: string;
-  priority: string;
+  done: boolean = false;
 
-  constructor(public descriptionParameter: string, public priorityParameter: string) {
-    this.done = false;
-    this.description = descriptionParameter;
-    this.priority = priorityParameter;
+  constructor(public description: string, public priority: string) {}
+
+  markDone(){
+    this.done = true;
   }
 }
 
-var tasks: Task[] = [];
+let tasks: Task[] = [];
 tasks.push(new Task('Do the dishes.', 'Medium'));
-console.log(tasks);
+tasks.push(new Task('Buy chocolate', 'Low'));
+tasks.push(new Task('Do the laundry.', 'High'));
+
+tasks[0].markDone();
+
+for(let task of tasks){
+  console.log(task);
+}
